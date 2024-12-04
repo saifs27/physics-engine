@@ -3,10 +3,10 @@
 #
 
 # Add source to this project's executable.
-add_executable (physics-sim "main.cpp" "physics-sim.h" "particle.cpp" "rigid_body.cpp")
+add_executable (physics-engine "main.cpp" "physics_engine.h" "particle.cpp" "rigid_body.cpp" )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET physics-sim PROPERTY CXX_STANDARD 20)
+  set_property(TARGET physics-engine PROPERTY CXX_STANDARD 20)
 endif()
 
-target_link_libraries(physics-sim PRIVATE raylib)
+target_link_libraries(physics-engine PRIVATE raylib)

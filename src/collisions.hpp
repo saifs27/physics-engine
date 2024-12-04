@@ -1,3 +1,8 @@
 #pragma once
+namespace physics {
 
-void resolve_collisions
+void resolve_collisions();
+
+
+
+}  // namespace physics

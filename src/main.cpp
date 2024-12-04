@@ -1,17 +1,15 @@
-﻿// fluid-sim.cpp : Defines the entry point for the application.
-//
-
-#include "physics-sim.h"
+﻿#include "physics_engine.h"
 
 int main()
 {
     const int screenWidth = 800;
     const int screenHeight = 800;
-    InitWindow(screenWidth, screenHeight, " n Simulation");
+    InitWindow(screenWidth, screenHeight, "Physics");
 
     SetTargetFPS(10);
-
-    Particle p(400, 400, 50);
+    physics::Vec3 pos(400, 400, 0);
+    physics::Vec3 velocity(4, 0, 0);
+    physics::Particle p(pos, velocity, 50);
     while (!WindowShouldClose()) {
         
         BeginDrawing();

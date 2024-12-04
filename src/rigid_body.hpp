@@ -2,29 +2,34 @@
 #include <array>
 #include <vector>
 
+#include "math.hpp"
 namespace physics {
-
-struct Vec3 {
-    float x;
-    float y;
-    float z;
-};
 
 struct Mesh {
     std::vector<Vec3> vertices;
     std::vector<Vec3> triangles;
 };
 
-
 struct RigidBody {
     Mesh& mesh;
-    Vec3 center_of_mass ;
-    Vec3 velocity; 
+    float mass;
+    float inverseMass;
+
+    Vec3 centerOfMass;
+
+    Vec3 position;
+    Vec3 linearVelocity;
+    Vec3 angularVelocity;
+ 
+    Matrix3 inertiaTensor;
+    Matrix3 inverseInertiaTensor;
+
     float density;
 
-    float mass();
-    Vec3 linear_momentum(); 
-    //Vec3 center_of_mass();
-}; 
+    void applyForce(const Vec3& force, const Vec3& dir);
 
-} // namespace physics
+    Vec3 linear_momentum();
+    // Vec3 center_of_mass();
+};
+
+}  // namespace physics
